@@ -1,0 +1,70 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Modal title</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>One fine body&hellip;</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
+  
+  <ng-template #longContent let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Crear Usuario</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]= "Formulario" (ngSubmit)="onRegister()" > 
+          
+       
+         
+            <fieldset>
+           
+            
+              <div class="  form-group">
+                <label >Nombre </label>
+                <input type="text" class="form-control" id="name" formControlName="name" placeholder="Name" required>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email </label>
+                <input type="email" required class="form-control" id="email" aria-describedby="emailHelp" formControlName="email" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label>RFC </label>
+                <input type="text" required class="form-control" id="rfc" formControlName="rfc"  placeholder="RFC">
+              </div>
+              <div class="form-group">
+                <label>Telefono </label>
+                <input type="number"  required class="form-control" id="phone" formControlName="phone" placeholder="PHONE">
+              </div>
+              <div class="form-group">
+                <label >Direccion </label>
+                <input type="email" required class="form-control" id="adress" formControlName="adress"  placeholder="ADRESSS">
+              </div>
+              <div class="form-group">
+                <label >Codigo Postal </label>
+                <input type="email" required class="form-control" id="cp" formControlName="cp" placeholder="CP">
+              </div>
+            </fieldset>
+            <div>
+            <input type="submit" value="Registrar" class="btn btn-primary btn-block" (click)="modal.close('Close click')">
+          </div>
+          
+          </form>
+    </div>
+    <div class="modal-footer">
+ 
+    </div>
+  </ng-template>
+  <div  (click)="open(longContent)">
+  <fa-icon [icon]="faUserPlus"></fa-icon>
+  
+</div>
